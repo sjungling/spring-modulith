@@ -1,0 +1,14 @@
+command:
+  description: Initializes Spring Modulith
+  options:
+    - name: enable-observability
+      description: Whether to include the modules for observability.
+      dataType: boolean
+      defaultValue: false
+    - name: use-observability-branch
+      description: Whether to include the modules for observability.
+      dataType: boolean
+      defaultValue: false
+    - name: enable-event-publication-registry
+      description: Valid values ["jdbc", "jpa", "mongodb"]
+      dataType: string
