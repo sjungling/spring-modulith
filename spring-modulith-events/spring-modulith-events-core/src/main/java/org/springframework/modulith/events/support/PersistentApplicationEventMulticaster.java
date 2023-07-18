@@ -33,6 +33,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.core.env.Environment;
 import org.springframework.lang.NonNull;
+import org.springframework.modulith.events.core.ConditionalEventListener;
 import org.springframework.modulith.events.core.EventPublication;
 import org.springframework.modulith.events.core.EventPublicationRegistry;
 import org.springframework.modulith.events.core.PublicationTargetIdentifier;
@@ -111,6 +112,22 @@ public class PersistentApplicationEventMulticaster extends AbstractApplicationEv
 
 	/*
 	 * (non-Javadoc)
+	 * @see org.springframework.context.event.AbstractApplicationEventMulticaster#getApplicationListeners(org.springframework.context.ApplicationEvent, org.springframework.core.ResolvableType)
+	 */
+	@Override
+	protected Collection<ApplicationListener<?>> getApplicationListeners(ApplicationEvent event,
+			ResolvableType eventType) {
+
+		Object eventToPersist = getEventToPersist(event);
+
+		return super.getApplicationListeners(event, eventType)
+				.stream()
+				.filter(it -> matches(eventToPersist, it))
+				.toList();
+	}
+
+	/*
+	 * (non-Javadoc)
 	 * @see org.springframework.beans.factory.SmartInitializingSingleton#afterSingletonsInstantiated()
 	 */
 	@Override
@@ -167,6 +184,13 @@ public class PersistentApplicationEventMulticaster extends AbstractApplicationEv
 		return PayloadApplicationEvent.class.isInstance(event) //
 				? ((PayloadApplicationEvent<?>) event).getPayload() //
 				: event;
+	}
+
+	private static boolean matches(Object event, ApplicationListener<?> listener) {
+
+		return ConditionalEventListener.class.isInstance(listener)
+				? ConditionalEventListener.class.cast(listener).supports(event)
+				: true;
 	}
 
 	/**
