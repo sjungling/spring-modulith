@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleB.internal;
+package com.acme.myproject.cycleb;
 
-import org.springframework.stereotype.Component;
+import com.acme.myproject.cycleA.CycleA;
 
 /**
  * @author Oliver Drotbohm
  */
-@Component
-class SupportingComponentB {
-
+public class CycleB {
+	CycleA cycleA;
 }

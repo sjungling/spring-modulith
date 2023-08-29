@@ -13,21 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleA;
+package com.acme.myproject.modulea;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Oliver Drotbohm
  */
-@Configuration
-public class SomeConfigurationA {
+@Component
+public class ServiceComponentA {
 
-	@Bean
-	SomeAtBeanComponentA atBeanComponent() {
-		return null;
+	private final ApplicationEventPublisher publisher;
+
+	ServiceComponentA(ApplicationEventPublisher publisher) {
+		this.publisher = publisher;
 	}
 
-	public static class SomeAtBeanComponentA {}
+	public void fireEvent() {
+		publisher.publishEvent(new SomeEventA("Message"));
+	}
 }

@@ -13,12 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleA;
+package com.acme.myproject.moduleb;
 
-import org.jmolecules.event.annotation.DomainEvent;
+import org.springframework.stereotype.Component;
+
+import com.acme.myproject.moduleA.ServiceComponentA;
+import com.acme.myproject.moduleb.internal.InternalComponentB;
 
 /**
  * @author Oliver Drotbohm
  */
-@DomainEvent
-public record SomeEventA(String message) {}
+@Component
+public class ServiceComponentB {
+
+	final ServiceComponentA serviceComponentA;
+	final InternalComponentB internalComponentB;
+
+	ServiceComponentB(ServiceComponentA serviceComponentA, InternalComponentB internalComponentB) {
+		this.serviceComponentA = serviceComponentA;
+		this.internalComponentB = internalComponentB;
+	}
+}

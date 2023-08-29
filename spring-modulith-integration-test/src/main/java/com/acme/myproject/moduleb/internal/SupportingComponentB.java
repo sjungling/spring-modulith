@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleB;
+package com.acme.myproject.moduleb.internal;
 
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
-import com.acme.myproject.moduleA.SomeEventA;
 
 /**
  * @author Oliver Drotbohm
  */
 @Component
-class SomeEventListenerB {
+class SupportingComponentB {
 
-	@EventListener
-	void on(SomeEventA event) {}
 }

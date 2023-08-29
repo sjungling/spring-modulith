@@ -13,24 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleB;
+package com.acme.myproject.moduleb;
 
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import com.acme.myproject.moduleA.ServiceComponentA;
-import com.acme.myproject.moduleB.internal.InternalComponentB;
+import com.acme.myproject.moduleA.SomeEventA;
 
 /**
  * @author Oliver Drotbohm
  */
 @Component
-public class ServiceComponentB {
+class SomeEventListenerB {
 
-	final ServiceComponentA serviceComponentA;
-	final InternalComponentB internalComponentB;
-
-	ServiceComponentB(ServiceComponentA serviceComponentA, InternalComponentB internalComponentB) {
-		this.serviceComponentA = serviceComponentA;
-		this.internalComponentB = internalComponentB;
-	}
+	@EventListener
+	void on(SomeEventA event) {}
 }

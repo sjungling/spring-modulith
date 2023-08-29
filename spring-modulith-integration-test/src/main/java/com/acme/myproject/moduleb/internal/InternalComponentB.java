@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2023 the original author or authors.
+ * Copyright 2018-2023 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleD;
+package com.acme.myproject.moduleb.internal;
 
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
-import com.acme.myproject.moduleA.SomeEventA;
 
 /**
  * @author Oliver Drotbohm
  */
 @Component
-class EventListenerD {
+public class InternalComponentB {
 
-	@EventListener
-	void on(SomeEventA event) {}
 }

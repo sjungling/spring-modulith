@@ -13,21 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleD;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
-import com.acme.myproject.moduleC.SomeValueC;
+package com.acme.myproject.modulec;
 
 /**
  * @author Oliver Drotbohm
  */
-@ConfigurationProperties
-class ConfigurationPropertiesD {
-
-	final SomeValueC value;
-
-	ConfigurationPropertiesD(SomeValueC value) {
-		this.value = value;
-	}
-}
+public class SomeValueC {}
