@@ -13,21 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleC;
+package com.acme.myproject.cyclea;
 
-import org.springframework.stereotype.Component;
-
-import com.acme.myproject.moduleB.ServiceComponentB;
+import com.acme.myproject.cycleB.CycleB;
 
 /**
  * @author Oliver Drotbohm
  */
-@Component
-class ServiceComponentC {
-
-	final ServiceComponentB serviceComponentB;
-
-	ServiceComponentC(ServiceComponentB serviceComponentB) {
-		this.serviceComponentB = serviceComponentB;
-	}
+public class CycleA {
+	CycleB cycleB;
 }

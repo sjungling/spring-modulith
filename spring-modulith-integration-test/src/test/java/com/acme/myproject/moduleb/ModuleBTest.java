@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleB;
+package com.acme.myproject.moduleb;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -29,7 +29,7 @@ import org.springframework.modulith.test.TestUtils;
 
 import com.acme.myproject.NonVerifyingModuleTest;
 import com.acme.myproject.moduleA.ServiceComponentA;
-import com.acme.myproject.moduleB.internal.InternalComponentB;
+import com.acme.myproject.moduleb.internal.InternalComponentB;
 
 /**
  * @author Oliver Drotbohm

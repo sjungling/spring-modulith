@@ -1,4 +1,4 @@
 @ApplicationModule(displayName = "MyModule C")
-package com.acme.myproject.moduleC;
+package com.acme.myproject.modulec;
 
 import org.springframework.modulith.ApplicationModule;

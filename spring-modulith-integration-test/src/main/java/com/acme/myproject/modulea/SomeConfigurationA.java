@@ -13,13 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.cycleA;
+package com.acme.myproject.modulea;
 
-import com.acme.myproject.cycleB.CycleB;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Oliver Drotbohm
  */
-public class CycleA {
-	CycleB cycleB;
+@Configuration
+public class SomeConfigurationA {
+
+	@Bean
+	SomeAtBeanComponentA atBeanComponent() {
+		return null;
+	}
+
+	public static class SomeAtBeanComponentA {}
 }

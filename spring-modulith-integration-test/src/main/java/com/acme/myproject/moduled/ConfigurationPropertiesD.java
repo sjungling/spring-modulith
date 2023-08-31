@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2023 the original author or authors.
+ * Copyright 2022-2023 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,24 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.myproject.moduleA;
+package com.acme.myproject.moduled;
 
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import com.acme.myproject.moduleC.SomeValueC;
 
 /**
  * @author Oliver Drotbohm
  */
-@Component
-public class ServiceComponentA {
+@ConfigurationProperties
+class ConfigurationPropertiesD {
 
-	private final ApplicationEventPublisher publisher;
+	final SomeValueC value;
 
-	ServiceComponentA(ApplicationEventPublisher publisher) {
-		this.publisher = publisher;
-	}
-
-	public void fireEvent() {
-		publisher.publishEvent(new SomeEventA("Message"));
+	ConfigurationPropertiesD(SomeValueC value) {
+		this.value = value;
 	}
 }
